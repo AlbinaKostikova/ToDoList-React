@@ -1,6 +1,4 @@
-import { RootState } from "../store"
-
-export const saveToLocalStorage = (state: RootState) => {
+export const saveToLocalStorage = (state: unknown) => {
   try {
     const appState = JSON.stringify(state)
     localStorage.setItem('appState', appState)
@@ -8,6 +6,7 @@ export const saveToLocalStorage = (state: RootState) => {
     console.warn(e)
   }
 }
+
 export const loadFromLocalStorage = () => {
   try {
     const appState = localStorage.getItem('appState')
